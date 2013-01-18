@@ -16,18 +16,18 @@
             "port": 443,
             "key": "/etc/ssl/ssl.key",
             "cert": "/etc/ssl/ssl.crt"
-        },
-        "daemon": {
-          "enabled": false,
-          "workerUser": "root",
-          "workerGroup": "root",
-          "stdout": "/tmp/hipache.out",
-          "stderr": "/tmp/hipache.err",
-          "pidFile": "/tmp/hipache.pid"
         }
     },
     "redis": {
         "port": 6379,
         "host": "127.0.0.1"
+    },
+    "daemon": {
+      "enabled": false,
+      "workerUser": "root",
+      "workerGroup": "root",
+      "stdout": "/tmp/hipache.out",
+      "stderr": "/tmp/hipache.err",
+      "pidFile": "/tmp/hipache.pid"
     }
 }
