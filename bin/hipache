@@ -45,8 +45,9 @@ if (argv.c || argv.config) {
 }
 
 if (cluster.isMaster) {
-    if (config.daemon.enabled) {
-      var pid = daemon.daemonize({ stdout: config.daemon.stdout, stderr: config.daemon.stderr }, config.daemon.pidFile);
+    var daemonOptions = config.server.daemon;
+    if (daemonOptions.enabled) {
+      var pid = daemon.daemonize({ stdout: daemonOptions.stdout, stderr: daemonOptions.stderr }, daemonOptions.pidFile);
       util.log("Server daemonized on pid " + pid);
     }
     // Run the master
