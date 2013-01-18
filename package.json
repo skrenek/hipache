@@ -19,7 +19,8 @@
         "http-proxy" : "git://github.com/jpetazzo/node-http-proxy#patch-1",
         "redis" : "0.7.x",
         "lru-cache": "2.0.x",
-        "optimist": "0.3.x"
+        "optimist": "0.3.x",
+        "daemon": "~0.5"
     },
     "scripts" : {
         "start" : "node bin/hipache",

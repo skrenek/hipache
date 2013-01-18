@@ -8,7 +8,8 @@ var fs = require('fs'),
     util = require('util'),
     argv = require('optimist').argv,
     master = require('../lib/master'),
-    worker = require('../lib/worker');
+    worker = require('../lib/worker'),
+    daemon = require("daemon");
 
 var help = [
     'usage: hipache [options]',
@@ -44,6 +45,10 @@ if (argv.c || argv.config) {
 }
 
 if (cluster.isMaster) {
+    if (config.daemon.enabled) {
+      var pid = daemon.daemonize({ stdout: config.daemon.stdout, stderr: config.daemon.stderr }, config.daemon.pidFile);
+      util.log("Server daemonized on pid " + pid);
+    }
     // Run the master
     master(config);
     util.log('Server is running. ' + JSON.stringify(config.server));
